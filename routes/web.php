@@ -9,10 +9,14 @@ use App\Http\Controllers\{
     StockOpnameController,
     SupplierController
 };
-use Symfony\Component\Process\Process;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+});
 
 Route::prefix('sales')->name('sales.')->group(function () {
     Route::get('/', [SalesController::class, 'index'])->name('index');
@@ -39,9 +43,11 @@ Route::prefix('purchases')->name('purchases.')->group(function () {
     Route::delete('/{id}', [PurchaseController::class, 'destroy'])->name('destroy');
 });
 
+
 Route::prefix('stock-opnames')->name('stock-opnames.')->group(function () {
     Route::get('/', [StockOpnameController::class, 'index'])->name('index');
 });
+
 Route::prefix('master-data/customers')->name('customers.')->group(function () {
     Route::get('/', [CustomerController::class, 'index'])->name('index');
     Route::get('/ajaxGetCustomPrice', [CustomerController::class, 'ajaxGetCustomPrice'])->name('ajaxGetCustomPrice');

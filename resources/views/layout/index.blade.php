@@ -85,7 +85,7 @@
                         </li>
 
                         <li class="sidebar-item {{ request()->segment(1) == 'sales' ? 'active' : '' }}">
-                            <a href="{{ route('sales.index') }}" class='sidebar-link'>
+                            <a href="{{ route('users.index') }}" class='sidebar-link'>
                                 <i style="color: {{ request()->segment(1) == 'sales' ? '#000040' : 'black' }}"
                                     class="bi bi-people-fill"></i>
                                 <span
