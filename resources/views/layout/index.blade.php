@@ -54,12 +54,18 @@
     <script src="{{ asset('assets/static/js/initTheme.js') }}"></script>
     <div id="app">
         <div id="sidebar">
-            <div class="sidebar-wrapper active" style="background-color: #000040">
+            <div class="sidebar-wrapper active">
                 <div class="sidebar-header position-relative">
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-center align-items-center">
                         <div>
-                            <a href="index.html"><span style="font-size: 20px;color:white">PoS Pena Hitam
-                                    Merah</span></a>
+                            <a href="index.html">
+                                <div>
+                                    <a href="index.html">
+                                        <img src="{{ asset('assets/images/logo.png') }}" alt=""
+                                            style="height: 50px; width: auto;">
+                                    </a>
+                                </div>
+                            </a>
                         </div>
 
                         <div class="sidebar-toggler  x">
@@ -71,44 +77,44 @@
                     <ul class="menu">
                         <li class="sidebar-item {{ request()->segment(1) == '' ? 'active' : '' }}">
                             <a href="{{ route('dashboard') }}" class='sidebar-link'>
-                                <i style="color: {{ request()->segment(1) == '' ? '#000040' : 'white' }}"
+                                <i style="color: {{ request()->segment(1) == '' ? '#000040' : 'black' }}"
                                     class="bi bi-grid-fill"></i>
                                 <span
-                                    style="color: {{ request()->segment(1) == '' ? '#000040' : 'white' }}">Dashboard</span>
+                                    style="color: {{ request()->segment(1) == '' ? '#000040' : 'black' }}">Dashboard</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item {{ request()->segment(1) == 'sales' ? 'active' : '' }}">
                             <a href="{{ route('sales.index') }}" class='sidebar-link'>
-                                <i style="color: {{ request()->segment(1) == 'sales' ? '#000040' : 'white' }}"
-                                    class="bi bi-cart-dash"></i>
+                                <i style="color: {{ request()->segment(1) == 'sales' ? '#000040' : 'black' }}"
+                                    class="bi bi-people-fill"></i>
                                 <span
-                                    style="color:{{ request()->segment(1) == 'sales' ? '#000040' : 'white' }}">Penjualan</span>
+                                    style="color:{{ request()->segment(1) == 'sales' ? '#000040' : 'black' }}">Pengguna</span>
                             </a>
                         </li>
                         <li class="sidebar-item {{ request()->segment(1) == 'purchases' ? 'active' : '' }}">
                             <a href="{{ route('purchases.index') }}" class='sidebar-link'>
-                                <i style="color: {{ request()->segment(1) == 'purchases' ? '#000040' : 'white' }}"
+                                <i style="color: {{ request()->segment(1) == 'purchases' ? '#000040' : 'black' }}"
                                     class="bi bi-cart-plus"></i>
                                 <span
-                                    style="color:{{ request()->segment(1) == 'purchases' ? '#000040' : 'white' }}">Pembelian</span>
+                                    style="color:{{ request()->segment(1) == 'purchases' ? '#000040' : 'black' }}">Pembelian</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item {{ request()->segment(1) == 'stock-opnames' ? 'active' : '' }}">
                             <a href="{{ route('stock-opnames.index') }}" class='sidebar-link'>
-                                <i style="color: {{ request()->segment(1) == 'stock-opnames' ? '#000040' : 'white' }}"
+                                <i style="color: {{ request()->segment(1) == 'stock-opnames' ? '#000040' : 'black' }}"
                                     class="bi bi-box-seam"></i>
                                 <span
-                                    style="color:{{ request()->segment(1) == 'stock-opnames' ? '#000040' : 'white' }}">Stock
+                                    style="color:{{ request()->segment(1) == 'stock-opnames' ? '#000040' : 'black' }}">Stock
                                     Opname</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i style="color: white" class="bi bi-stack"></i>
-                                <span style="color: white">Referensi</span>
+                                <i style="color:black" class="bi bi-stack"></i>
+                                <span style="color:black">Referensi</span>
                             </a>
 
                             <ul
@@ -116,24 +122,24 @@
 
                                 <li class="submenu-item {{ request()->segment(2) == 'customers' ? 'active' : '' }}">
                                     <a href="{{ route('customers.index') }}?tab=group" class='submenu-link'
-                                        style="{{ request()->segment(2) == 'customers' ? 'background-color:white; border-radius:8px;' : '' }}">
+                                        style="{{ request()->segment(2) == 'customers' ? ' border-radius:8px;' : '' }}">
                                         <span
-                                            style="color:{{ request()->segment(2) == 'customers' ? '#000040' : 'white' }}">Customer</span>
+                                            style="color:{{ request()->segment(2) == 'customers' ? '#000040' : '' }}">Customer</span>
                                     </a>
                                 </li>
 
                                 <li class="submenu-item {{ request()->segment(2) == 'products' ? 'active' : '' }}">
                                     <a href="{{ route('products.index') }}" class='submenu-link'
-                                        style="{{ request()->segment(2) == 'products' ? 'background-color:white; border-radius:8px;' : '' }}">
+                                        style="{{ request()->segment(2) == 'products' ? ' border-radius:8px;' : '' }}">
                                         <span
-                                            style="color:{{ request()->segment(2) == 'products' ? '#000040' : 'white' }}">Produk</span>
+                                            style="color:{{ request()->segment(2) == 'products' ? '#000040' : '' }}">Produk</span>
                                     </a>
                                 </li>
                                 <li class="submenu-item {{ request()->segment(2) == 'suppliers' ? 'active' : '' }}">
                                     <a href="{{ route('suppliers.index') }}" class='submenu-link'
-                                        style="{{ request()->segment(2) == 'suppliers' ? 'background-color:white; border-radius:8px;' : '' }}">
+                                        style="{{ request()->segment(2) == 'suppliers' ? ' border-radius:8px;' : '' }}">
                                         <span
-                                            style="color:{{ request()->segment(2) == 'suppliers' ? '#000040' : 'white' }}">Supplier</span>
+                                            style="color:{{ request()->segment(2) == 'suppliers' ? '#000040' : '' }}">Supplier</span>
                                     </a>
                                 </li>
 
