@@ -7,12 +7,18 @@ use App\Http\Controllers\{
     SalesController,
     PurchaseController,
     StockOpnameController,
-    SupplierController
+    SupplierController,
+    PenyewaController
 };
+
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::prefix('penyewa')->name('penyewa.')->group(function () {
+    Route::get('/', [PenyewaController::class, 'index'])->name('index');
+});
 
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
