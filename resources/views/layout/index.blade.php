@@ -4,54 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title>yukost - Admin</title>
 
 
 
-    <link rel="shortcut icon" href="{{ asset('assets/compiled/svg/favicon.svg') }}" type="image/x-icon">
-    <link rel="shortcut icon"
-        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC"
-        type="image/png">
-
-    <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/compiled/css/iconly.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.css') }}">
-    <style>
-        .select2-container--default .select2-selection--single {
-            height: 38px !important;
-            border: 1px solid #dce7f1 !important;
-            border-radius: 4px !important;
-            padding: 8px 12px !important;
-            box-sizing: border-box;
-            color: #607080;
-            display: flex;
-            align-items: center;
-        }
+    <link rel="shortcut icon" href="{{ asset('assets/compiled/svg/favicon.svg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC" type="image/png">
 
 
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            padding-left: 0 !important;
-            line-height: normal !important;
-            color: #607080 !important;
-        }
 
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-            display: none !important;
-        }
-
-
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-            height: 100% !important;
-            top: 0 !important;
-        }
-    </style>
-    <script src="{{ asset('assets/helper.js') }}"></script>
-
+    <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/compiled/css/app-dark.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/compiled/css/iconly.css')}}">
 </head>
 
 <body>
-    <script src="{{ asset('assets/static/js/initTheme.js') }}"></script>
+    <script src="{{ asset('assets/static/js/initTheme.js')}}"></script>
     <div id="app">
         <div id="sidebar">
             <div class="sidebar-wrapper active">
@@ -59,13 +27,13 @@
                     <div class="d-flex justify-content-center align-items-center">
                         <div>
                             <a href="index.html">
-                                <div>
-                                    <a href="index.html">
-                                        <img src="{{ asset('assets/images/logo.png') }}" alt=""
-                                            style="height: 50px; width: auto;">
-                                    </a>
-                                </div>
                             </a>
+                            <div><a href="index.html">
+                                </a><a href="index.html">
+                                    <img src="{{ asset('http://103.150.100.187:8002/assets/images/logo.png')}}" alt="" style="height: 50px; width: auto;">
+                                </a>
+                            </div>
+
                         </div>
 
                         <div class="sidebar-toggler  x">
@@ -75,89 +43,131 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-item {{ request()->segment(1) == '' ? 'active' : '' }}">
-                            <a href="{{ route('dashboard') }}" class='sidebar-link'>
-                                <i style="color: {{ request()->segment(1) == '' ? '#000040' : 'black' }}"
-                                    class="bi bi-grid-fill"></i>
-                                <span
-                                    style="color: {{ request()->segment(1) == '' ? '#000040' : 'black' }}">Dashboard</span>
+                        <li class="sidebar-title">Menu</li>
+
+                        <li
+                            class="sidebar-item ">
+                            <a href="/" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
                             </a>
+
+
                         </li>
 
-                        <li class="sidebar-item {{ request()->segment(1) == 'sales' ? 'active' : '' }}">
-                            <a href="{{ route('users.index') }}" class='sidebar-link'>
-                                <i style="color: {{ request()->segment(1) == 'sales' ? '#000040' : 'black' }}"
-                                    class="bi bi-people-fill"></i>
-                                <span
-                                    style="color:{{ request()->segment(1) == 'sales' ? '#000040' : 'black' }}">Pengguna</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item {{ request()->segment(1) == 'purchases' ? 'active' : '' }}">
-                            <a href="{{ route('purchases.index') }}" class='sidebar-link'>
-                                <i style="color: {{ request()->segment(1) == 'purchases' ? '#000040' : 'black' }}"
-                                    class="bi bi-cart-plus"></i>
-                                <span
-                                    style="color:{{ request()->segment(1) == 'purchases' ? '#000040' : 'black' }}">Pembelian</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item {{ request()->segment(1) == 'stock-opnames' ? 'active' : '' }}">
-                            <a href="{{ route('stock-opnames.index') }}" class='sidebar-link'>
-                                <i style="color: {{ request()->segment(1) == 'stock-opnames' ? '#000040' : 'black' }}"
-                                    class="bi bi-box-seam"></i>
-                                <span
-                                    style="color:{{ request()->segment(1) == 'stock-opnames' ? '#000040' : 'black' }}">Stock
-                                    Opname</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i style="color:black" class="bi bi-stack"></i>
-                                <span style="color:black">Referensi</span>
+                        <li
+                            class="sidebar-item  has-sub">
+                            <a href="" class='sidebar-link'>
+                                <i class="bi bi-person-square"></i>
+                                <span>Penyewa</span>
                             </a>
 
-                            <ul
-                                class="submenu {{ request()->segment(1) == 'master-data' ? 'submenu-open' : 'submenu-closed' }}">
+                            <ul class="submenu ">
+                                <li class="submenu-item  ">
+                                    <a href="component-accordion.html" class="submenu-link">Data Penyewa</a>
 
-                                <li class="submenu-item {{ request()->segment(2) == 'customers' ? 'active' : '' }}">
-                                    <a href="{{ route('customers.index') }}?tab=group" class='submenu-link'
-                                        style="{{ request()->segment(2) == 'customers' ? ' border-radius:8px;' : '' }}">
-                                        <span
-                                            style="color:{{ request()->segment(2) == 'customers' ? '#000040' : '' }}">Customer</span>
-                                    </a>
                                 </li>
 
-                                <li class="submenu-item {{ request()->segment(2) == 'products' ? 'active' : '' }}">
-                                    <a href="{{ route('products.index') }}" class='submenu-link'
-                                        style="{{ request()->segment(2) == 'products' ? ' border-radius:8px;' : '' }}">
-                                        <span
-                                            style="color:{{ request()->segment(2) == 'products' ? '#000040' : '' }}">Produk</span>
-                                    </a>
+                                <li class="submenu-item  ">
+                                    <a href="component-alert.html" class="submenu-link">Register</a>
+
                                 </li>
-                                <li class="submenu-item {{ request()->segment(2) == 'suppliers' ? 'active' : '' }}">
-                                    <a href="{{ route('suppliers.index') }}" class='submenu-link'
-                                        style="{{ request()->segment(2) == 'suppliers' ? ' border-radius:8px;' : '' }}">
-                                        <span
-                                            style="color:{{ request()->segment(2) == 'suppliers' ? '#000040' : '' }}">Supplier</span>
-                                    </a>
-                                </li>
-
-
-
                             </ul>
 
 
                         </li>
 
-                        <li class="sidebar-item">
+                        <li
+                            class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i style="color: white" class="bi bi-gear"></i>
-                                <span style="color: white">Pengaturan</span>
+                                <i class="bi bi-person-rolodex"></i>
+                                <span>Owner</span>
                             </a>
+
+                            <ul class="submenu ">
+                                <li class="submenu-item  ">
+                                    <a href="component-accordion.html" class="submenu-link">Data Owner</a>
+
+                                </li>
+
+                                <li class="submenu-item  ">
+                                    <a href="component-alert.html" class="submenu-link">Data Penarikan Dana</a>
+
+                                </li>
+
+                                <li class="submenu-item  ">
+                                    <a href="component-alert.html" class="submenu-link">Approval Penarikan Dana</a>
+
+                                </li>
+                            </ul>
 
 
                         </li>
+
+                        <li
+                            class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-building"></i>
+                                <span>Properti</span>
+                            </a>
+
+                            <ul class="submenu ">
+                                <li class="submenu-item  ">
+                                    <a href="component-accordion.html" class="submenu-link">Data Properti</a>
+
+                                </li>
+
+                                <li class="submenu-item  ">
+                                    <a href="component-alert.html" class="submenu-link">Data Properti</a>
+
+                                </li>
+
+                                <li class="submenu-item  ">
+                                    <a href="component-alert.html" class="submenu-link">Approval Penarikan Dana</a>
+
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li
+                            class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-volume-up-fill"></i>
+                                <span>Pengaduan</span>
+                            </a>
+
+                            <ul class="submenu ">
+                                <li class="submenu-item  ">
+                                    <a href="component-accordion.html" class="submenu-link">Data Pengaduan</a>
+
+                                </li>
+                                <li class="submenu-item  ">
+                                    <a href="component-alert.html" class="submenu-link">Approval Pengaduan</a>
+
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li
+                            class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Pengaturan</span>
+                            </a>
+
+                            <ul class="submenu ">
+                                <li class="submenu-item  ">
+                                    <a href="component-accordion.html" class="submenu-link">Data Pengaduan</a>
+
+                                </li>
+                                <li class="submenu-item  ">
+                                    <a href="component-alert.html" class="submenu-link">Approval Pengaduan</a>
+
+                                </li>
+                            </ul>
+                        </li>
+
+
 
                     </ul>
                 </div>
@@ -171,12 +181,266 @@
             </header>
 
             <div class="page-heading">
-                <h3>{{$title}}</h3>
+                <h3>Dashboard</h3>
             </div>
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-12">
-                        @yield('content')
+                    <div class="col-12 col-lg-9">
+                        <div class="row">
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon purple mb-2">
+                                                    <i class="iconly-boldShow"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">Profile Views</h6>
+                                                <h6 class="font-extrabold mb-0">112.000</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon blue mb-2">
+                                                    <i class="iconly-boldProfile"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">Followers</h6>
+                                                <h6 class="font-extrabold mb-0">183.000</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon green mb-2">
+                                                    <i class="iconly-boldAdd-User"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">Following</h6>
+                                                <h6 class="font-extrabold mb-0">80.000</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-4 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                                <div class="stats-icon red mb-2">
+                                                    <i class="iconly-boldBookmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                                <h6 class="text-muted font-semibold">Saved Post</h6>
+                                                <h6 class="font-extrabold mb-0">112</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Profile Visit</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="chart-profile-visit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-xl-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Profile Visit</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <div class="d-flex align-items-center">
+                                                    <svg class="bi text-primary" width="32" height="32" fill="blue"
+                                                        style="width:10px">
+                                                        <use
+                                                            xlink:href="{{ asset('assets/static/images/bootstrap-icons.svg#circle-fill')}}" />
+                                                    </svg>
+                                                    <h5 class="mb-0 ms-3">Europe</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-5">
+                                                <h5 class="mb-0 text-end">862</h5>
+                                            </div>
+                                            <div class="col-12">
+                                                <div id="chart-europe"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <div class="d-flex align-items-center">
+                                                    <svg class="bi text-success" width="32" height="32" fill="blue"
+                                                        style="width:10px">
+                                                        <use
+                                                            xlink:href="{{ asset('assets/static/images/bootstrap-icons.svg#circle-fill')}}" />
+                                                    </svg>
+                                                    <h5 class="mb-0 ms-3">America</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-5">
+                                                <h5 class="mb-0 text-end">375</h5>
+                                            </div>
+                                            <div class="col-12">
+                                                <div id="chart-america"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <div class="d-flex align-items-center">
+                                                    <svg class="bi text-danger" width="32" height="32" fill="blue"
+                                                        style="width:10px">
+                                                        <use
+                                                            xlink:href="{{ asset('assets/static/images/bootstrap-icons.svg#circle-fill')}}" />
+                                                    </svg>
+                                                    <h5 class="mb-0 ms-3">Indonesia</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-5">
+                                                <h5 class="mb-0 text-end">1025</h5>
+                                            </div>
+                                            <div class="col-12">
+                                                <div id="chart-indonesia"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-xl-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Latest Comments</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover table-lg">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Comment</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-3">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-md">
+                                                                    <img src="{{ asset('assets/compiled/jpg/5.jpg')}}">
+                                                                </div>
+                                                                <p class="font-bold ms-3 mb-0">Si Cantik</p>
+                                                            </div>
+                                                        </td>
+                                                        <td class="col-auto">
+                                                            <p class=" mb-0">Congratulations on your graduation!</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-3">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-md">
+                                                                    <img src="{{ asset('assets/compiled/jpg/2.jpg')}}">
+                                                                </div>
+                                                                <p class="font-bold ms-3 mb-0">Si Ganteng</p>
+                                                            </div>
+                                                        </td>
+                                                        <td class="col-auto">
+                                                            <p class=" mb-0">Wow amazing design! Can you make another tutorial for
+                                                                this design?</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <div class="card">
+                            <div class="card-body py-4 px-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar avatar-xl">
+                                        <img src="{{ asset('assets/compiled/jpg/1.jpg')}}" alt="Face 1">
+                                    </div>
+                                    <div class="ms-3 name">
+                                        <h5 class="font-bold">John Duck</h5>
+                                        <h6 class="text-muted mb-0">@johnducky</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recent Messages</h4>
+                            </div>
+                            <div class="card-content pb-4">
+                                <div class="recent-message d-flex px-4 py-3">
+                                    <div class="avatar avatar-lg">
+                                        <img src="{{ asset('assets/compiled/jpg/4.jpg')}}">
+                                    </div>
+                                    <div class="name ms-4">
+                                        <h5 class="mb-1">Hank Schrader</h5>
+                                        <h6 class="text-muted mb-0">@johnducky</h6>
+                                    </div>
+                                </div>
+                                <div class="recent-message d-flex px-4 py-3">
+                                    <div class="avatar avatar-lg">
+                                        <img src="{{ asset('assets/compiled/jpg/5.jpg')}}">
+                                    </div>
+                                    <div class="name ms-4">
+                                        <h5 class="mb-1">Dean Winchester</h5>
+                                        <h6 class="text-muted mb-0">@imdean</h6>
+                                    </div>
+                                </div>
+                                <div class="recent-message d-flex px-4 py-3">
+                                    <div class="avatar avatar-lg">
+                                        <img src="{{ asset('assets/compiled/jpg/1.jpg')}}">
+                                    </div>
+                                    <div class="name ms-4">
+                                        <h5 class="mb-1">John Dodol</h5>
+                                        <h6 class="text-muted mb-0">@dodoljohn</h6>
+                                    </div>
+                                </div>
+                                <div class="px-4">
+                                    <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Start Conversation</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Visitors Profile</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart-visitors-profile"></div>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -184,70 +448,28 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2025 &copy; Point of Sales</p>
+                        <p>2023 &copy; Mazer</p>
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-                            by <a href="#">Pena Hitam Merah</a></p>
+                            by <a href="https://saugi.me">Saugi</a></p>
                     </div>
                 </div>
             </footer>
         </div>
     </div>
-    <script src="{{ asset('assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/static/js/components/dark.js')}}"></script>
+    <script src="{{ asset('assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
 
 
-    <script src="{{ asset('assets/compiled/js/app.js') }}"></script>
+    <script src="{{ asset('assets/compiled/js/app.js')}}"></script>
+
+
+
+    <!-- Need: Apexcharts -->
+    <script src="{{ asset('assets/extensions/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="{{ asset('assets/static/js/pages/dashboard.js')}}"></script>
 
 </body>
-<script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>
-<script>
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    });
-</script>
-@if(session('success'))
-<script>
-    Toast.fire({
-  icon: 'success',
-  title: @json(session('success'))
-});
-</script>
-@endif
-
-@if(session('error'))
-<script>
-    Toast.fire({
-  icon: 'error',
-  title: @json(session('error'))
-});
-</script>
-@endif
-
-@if(session('info'))
-<script>
-    Toast.fire({
-  icon: 'info',
-  title: @json(session('info'))
-});
-</script>
-@endif
-
-@if(session('warning'))
-<script>
-    Toast.fire({
-  icon: 'warning',
-  title: @json(session('warning'))
-});
-</script>
-@endif
 
 </html>
