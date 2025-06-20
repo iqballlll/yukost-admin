@@ -35,74 +35,74 @@
 @php
 $helpers = \App\Helpers\AppHelpers::class;
 @endphp
-<div class="card">
-    <div class="card-body py-4">
-        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab"
-                    aria-controls="home" aria-selected="true">Admin</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab"
-                    aria-controls="profile" aria-selected="false">Penyewa</a>
-            </li>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body py-4">
+            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">Penyewa</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">Registrasi</a>
+                </li>
 
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nama Pengguna</th>
-                                <th>Email</th>
-                                <th>Nomor Telepon</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Rara</td>
-                                <td>rara@gmail.com</td>
-                                <td>082374234</td>
-                                <td>
-                                    <button class="btn btn-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nama Pengguna</th>
+                                    <th>Email</th>
+                                    <th>Nomor Telepon</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rara</td>
+                                    <td>rara@gmail.com</td>
+                                    <td>082374234</td>
+                                    <td>
+                                        <button class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Nama Pengguna</th>
-                                <th>Email</th>
-                                <th>Nomor Telepon</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Rara</td>
-                                <td>rara@gmail.com</td>
-                                <td>082374234</td>
-                                <td>
-                                    <button class="btn btn-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nama Pengguna</th>
+                                    <th>Email</th>
+                                    <th>Nomor Telepon</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rara</td>
+                                    <td>rara@gmail.com</td>
+                                    <td>082374234</td>
+                                    <td>
+                                        <button class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
 
-    </script>
     @endsection

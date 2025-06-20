@@ -9,7 +9,7 @@ class UserController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Pengguna'
+            'title' => 'Penyewa'
         ];
         return view('pages.user.index', $data);
     }
