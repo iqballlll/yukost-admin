@@ -8,7 +8,8 @@ use App\Http\Controllers\{
     PurchaseController,
     StockOpnameController,
     SupplierController,
-    PenyewaController
+    PenyewaController,
+    OwnerController
 };
 
 use App\Http\Controllers\UserController;
@@ -19,6 +20,10 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::prefix('penyewa')->name('penyewa.')->group(function () {
     Route::get('/', [PenyewaController::class, 'index'])->name('index');
+});
+
+Route::prefix('owner')->name('owner.')->group(function () {
+    Route::get('/', [OwnerController::class, 'index'])->name('index');
 });
 
 Route::prefix('users')->name('users.')->group(function () {

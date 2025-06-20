@@ -86,7 +86,7 @@
 
                             <ul class="submenu ">
                                 <li class="submenu-item  ">
-                                    <a href="component-accordion.html" class="submenu-link">Data Owner</a>
+                                    <a href="/owner" class="submenu-link">Data Owner</a>
 
                                 </li>
 
@@ -113,16 +113,6 @@
                             <ul class="submenu ">
                                 <li class="submenu-item  ">
                                     <a href="component-accordion.html" class="submenu-link">Data Properti</a>
-
-                                </li>
-
-                                <li class="submenu-item  ">
-                                    <a href="component-alert.html" class="submenu-link">Data Properti</a>
-
-                                </li>
-
-                                <li class="submenu-item  ">
-                                    <a href="component-alert.html" class="submenu-link">Approval Penarikan Dana</a>
 
                                 </li>
                             </ul>
