@@ -60,7 +60,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route('users.index') }}" class='sidebar-link'>
+                            <a href="{{ route('tenants.index') }}?tab=approved" class='sidebar-link'>
                                 <i class="bi bi-person-square"></i>
                                 <span>Penyewa</span>
                             </a>

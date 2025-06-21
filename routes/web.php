@@ -11,18 +11,17 @@ use App\Http\Controllers\{
     PenyewaController
 };
 
+use App\Http\Controllers\TenantController;
 use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::prefix('tenants')->name('tenants.')->group(function () {
+    Route::get('/', [TenantController::class, 'index'])->name('index');
+    Route::put('/tenant/{id}/status', [TenantController::class, 'updateStatus'])->name('status.update');
 
-Route::prefix('penyewa')->name('penyewa.')->group(function () {
-    Route::get('/', [PenyewaController::class, 'index'])->name('index');
-});
-
-Route::prefix('users')->name('users.')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
 });
 
 Route::prefix('sales')->name('sales.')->group(function () {
