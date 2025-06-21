@@ -8,7 +8,8 @@ use App\Http\Controllers\{
     PurchaseController,
     StockOpnameController,
     SupplierController,
-    PenyewaController
+    PenyewaController,
+    OwnerController
 };
 
 use App\Http\Controllers\TenantController;
